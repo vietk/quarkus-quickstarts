@@ -16,8 +16,12 @@ import javax.ws.rs.core.MediaType;
 @Path("/prices")
 public class PriceResource {
 
+     Publisher<Double> prices;
+
     @Inject
-    @Channel("my-data-stream") Publisher<Double> prices;
+    public PriceResource(@Channel("my-data-stream") Publisher<Double> prices) {
+        this.prices = prices;
+    }
 
     @GET
     @Path("/stream")
