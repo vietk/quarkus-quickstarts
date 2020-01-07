@@ -19,17 +19,17 @@ import org.acme.quarkus.sample.kafkastreams.streams.GetWeatherStationDataResult;
 import org.acme.quarkus.sample.kafkastreams.streams.InteractiveQueries;
 import org.acme.quarkus.sample.kafkastreams.streams.PipelineMetadata;
 
-@ApplicationScoped
-@Path("/weather-stations")
+//@ApplicationScoped
+//@Path("/weather-stations")
 public class WeatherStationEndpoint {
 
     @Inject
     InteractiveQueries interactiveQueries;
 
-    @GET
-    @Path("/data/{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+//    @GET
+//    @Path("/data/{id}")
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
     public Response getWeatherStationData(@PathParam("id") int id) {
         GetWeatherStationDataResult result = interactiveQueries.getWeatherStationData(id);
 
@@ -45,9 +45,9 @@ public class WeatherStationEndpoint {
         }
     }
 
-    @GET
-    @Path("/meta-data")
-    @Produces(MediaType.APPLICATION_JSON)
+//    @GET
+//    @Path("/meta-data")
+//    @Produces(MediaType.APPLICATION_JSON)
     public List<PipelineMetadata> getMetaData() {
         return interactiveQueries.getMetaData();
     }
