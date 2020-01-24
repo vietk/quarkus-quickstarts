@@ -16,10 +16,14 @@ public class PriceGenerator {
 
     private Random random = new Random();
 
+    private int increment = 0;
+
     @Outgoing("generated-price")
     public Flowable<Integer> generate() {
-        return Flowable.interval(5, TimeUnit.SECONDS)
-                .map(tick -> random.nextInt(100));
+        return Flowable.interval(100, TimeUnit.MILLISECONDS)
+            .map(tick -> increment++);
+//        return Flowable.interval(5, TimeUnit.SECONDS)
+//                .map(tick -> random.nextInt(100));
     }
 
 }
